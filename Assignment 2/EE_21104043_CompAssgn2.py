@@ -106,7 +106,7 @@ print()
 
 
 
-#Question 5- Checking if a particular word is there in a string entered by the user
+#Question 5- Checking if a particular word is there in a string entered by the user.
 print("\tQuestion 5\n")
 
 input_string = input("Enter the string: ")
