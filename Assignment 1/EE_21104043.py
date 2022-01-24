@@ -7,7 +7,7 @@ c = float(input("Enter third number: "))
 avg = (a+b+c)/3
 
 print("The average of three numbers is: ", avg)
-
+print()
 print()
 print()
 print()
