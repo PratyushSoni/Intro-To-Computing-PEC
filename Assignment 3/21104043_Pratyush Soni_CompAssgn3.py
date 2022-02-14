@@ -129,82 +129,48 @@ print()
 '''Program to add student details in a dictionary and performing operations on that dictionary.'''
 
 
-def dict_sort_values(d):
-    list_1 = list(d.values())
-    list_1.sort()
-    Sort_by_Values = {}
-    for i in list_1:
-        temp = list(d.keys())[list(d.values()).index(i)]
-        Sort_by_Values[temp] = d[temp]
+# Question 6 -  a  python  script  that  repeatedly  ask  user  to  enter  name  and  SID and then performing further functions on them as follows:
+print("Question-6\n")
 
-    return Sort_by_Values
+SID = int(input("Enter SID: "))
+Name = input("Enter Name: ")
+Students = {SID:Name}
 
-
-def dict_sort_keys(d):
-    list_1 = list(d.keys())
-    list_1.sort()
-    Sort_By_Keys = {}
-    for i in list_1:
-        Sort_By_Keys[i] = d[i]
-
-    return Sort_By_Keys
-
-
-def dict_adder(d):
-    Key = int(input("Enter the SID:"))
-    Value = input("Enter the name:")
-    d[Key] = Value
-
-
-print("\n\tStudent Details Manager\n")
-
-# Creating an empty dictionary.
-student_details = {}
-
-# Using While loop to take inputs into a dictionary repeatedly.
-answer = 'y'
-while answer == 'y':
-    dict_adder(student_details)
-
-    question = input("\nDo you want to enter another value?[y/n]:").lower()
-
-    # If user enters 'y' the loop continues.
-    if question == 'y':
-        answer = 'y'
-    elif question == 'n':
+while True:
+    UserInput = input("Do you want to enter another student details(y or n): ").upper()
+    if UserInput == 'Y':
+        SID = int(input("Enter SID: "))
+        Name = input("Enter Name: ")
+        Students[SID] = Name
+    elif UserInput == 'N':
         break
     else:
-        print("\nError!:only y/n should be entered.")
-        exit()
+     print('Input Is Invalid!')
 
-# part (a)
-'''Printing out all the details of the students entered in the dictionary.'''
+#a-part
 
-print("\nStudent Details stored in dictionary:")
-print("\nSID\t\t\tNames")
+print("\n(a) Student Details: " ,Students)
 
+#b-part
 
-for k in student_details:
-    print(k, student_details[k])
+print("\n(b) Stuident Details Sorted By Names: " ,{k:v for k,v in sorted(Students.items(), key= lambda x:x[1])})
 
-# part (b)
-print("Dictionary Sorted according to names: ", dict_sort_values(student_details))
+#c-part
 
-# part (c)
-print("Dictionary Sorted according to SIDs: ", dict_sort_keys(student_details))
+print("\n(c) Stuident Details Sorted By SID: " ,{k:v for k,v in sorted(Students.items())})
 
-# part (d)
-find_SID = int(input("\nEnter the SID which you want to search:"))
+#d-part
 
-if find_SID in student_details.keys():
-    print("Name of the student with SID:", find_SID ,"is: " , student_details[find_SID])
-else:
-    print("Error!", find_SID, "not found in the record.")
+Search = int(input("\nPlease Enter SID Of The Student You Want To Search: " ))
+print("\n(d) Student With The Given SID Is: " ,Students[Search])
+
 
 print()
 print()
 print()
 
+                        #Question 7
+'''Fibonacci series and average of it'''
 def fibo(n):
    if n <= 1:
        return n
